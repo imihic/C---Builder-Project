@@ -1,0 +1,98 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 690
+  ClientWidth = 1109
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Menu = MainMenu1
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object ListView1: TListView
+    Left = 8
+    Top = 8
+    Width = 745
+    Height = 553
+    Columns = <
+      item
+        AutoSize = True
+        Caption = 'Reciever'
+      end
+      item
+        AutoSize = True
+        Caption = 'Description'
+      end
+      item
+        AutoSize = True
+        Caption = 'Amount'
+      end
+      item
+        AutoSize = True
+        Caption = 'Status'
+      end
+      item
+        AutoSize = True
+        Caption = 'Signed By'
+      end>
+    ColumnClick = False
+    Groups = <
+      item
+        GroupID = 0
+        State = [lgsNormal]
+        HeaderAlign = taLeftJustify
+        FooterAlign = taLeftJustify
+        TitleImage = -1
+      end>
+    TabOrder = 0
+  end
+  object MainMenu1: TMainMenu
+    Left = 32
+    Top = 640
+    object Menu1: TMenuItem
+      Caption = 'File'
+      object NeweInvoice1: TMenuItem
+        Caption = 'New Invoice'
+      end
+      object Import1: TMenuItem
+        Caption = 'Import Invoice'
+        object fromXML1: TMenuItem
+          Caption = 'From XML'
+        end
+        object FromJson1: TMenuItem
+          Caption = 'From Json'
+        end
+        object fromeInv1: TMenuItem
+          Caption = 'from .inv'
+        end
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object Exit1: TMenuItem
+        Caption = 'Exit'
+      end
+    end
+    object Options1: TMenuItem
+      Caption = 'Options'
+      object ChangeLanguage1: TMenuItem
+        Caption = 'Change Language'
+        object Englush1: TMenuItem
+          Caption = 'English'
+        end
+        object Croatian1: TMenuItem
+          Caption = 'Croatian'
+        end
+      end
+    end
+  end
+  object RDSConnection1: TRDSConnection
+    Left = 304
+    Top = 640
+  end
+end
