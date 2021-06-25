@@ -16,34 +16,33 @@
 #include <Data.FMTBcd.hpp>
 #include <Vcl.DBGrids.hpp>
 #include <Vcl.Grids.hpp>
+#include <Vcl.DBCtrls.hpp>
+#include <Vcl.ExtCtrls.hpp>
 //---------------------------------------------------------------------------
-class TForm2 : public TForm
+class TeInvoice : public TForm
 {
 __published:	// IDE-managed Components
-	TMainMenu *MainMenu1;
-	TMenuItem *Menu1;
-	TMenuItem *NeweInvoice1;
-	TMenuItem *Import1;
-	TMenuItem *fromXML1;
-	TMenuItem *Exit1;
-	TMenuItem *FromJson1;
-	TMenuItem *fromeInv1;
-	TMenuItem *Options1;
-	TMenuItem *ChangeLanguage1;
-	TMenuItem *Englush1;
-	TMenuItem *Croatian1;
-	TMenuItem *N1;
-	TSQLConnection *SQLiteConnection;
 	TGroupBox *GroupBox1;
-	TSQLTable *racuni;
 	TDBGrid *DBGrid1;
-	TDataSource *DRacuni;
-	TSQLQuery *SQLQuery1;
+	TADOConnection *ADOConnection1;
+	TADOTable *tPrimatelji;
+	TADOTable *tRacuni;
+	TDataSource *dPrimatelji;
+	TDataSource *dRacuni;
+	TDBNavigator *DBNavigatorPrimatelji;
+	TLabel *filterLabelPrimateljNaziv;
+	TEdit *eNazivPrimateljaFilter;
+	TLabel *filterLabelOIBPrimatelja;
+	TEdit *eOIBPrimateljaFilter;
+	TEdit *eAdresaPrimateljaFilter;
+	TLabel *filterLabelAdresaPrimatelja;
+	TButton *btnFilter;
+	TButton *btnClear;
 private:	// User declarations
 public:		// User declarations
-	__fastcall TForm2(TComponent* Owner);
+	__fastcall TeInvoice(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TForm2 *Form2;
+extern PACKAGE TeInvoice *eInvoice;
 //---------------------------------------------------------------------------
 #endif

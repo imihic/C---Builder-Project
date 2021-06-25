@@ -1,8 +1,8 @@
-object Form2: TForm2
+object eInvoice: TeInvoice
   Left = 0
   Top = 0
-  Caption = 'Form2'
-  ClientHeight = 690
+  Caption = 'eInvoice'
+  ClientHeight = 710
   ClientWidth = 1109
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -10,7 +10,6 @@ object Form2: TForm2
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  Menu = MainMenu1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
@@ -19,90 +18,147 @@ object Form2: TForm2
     Top = 8
     Width = 398
     Height = 257
-    Caption = 'Filter results'
+    Caption = 'Primatelji'
     TabOrder = 0
+    object filterLabelPrimateljNaziv: TLabel
+      Left = 56
+      Top = 40
+      Width = 80
+      Height = 13
+      Caption = 'Naziv primatelja:'
+    end
+    object filterLabelOIBPrimatelja: TLabel
+      Left = 56
+      Top = 72
+      Width = 72
+      Height = 13
+      Caption = 'OIB primatelja:'
+    end
+    object filterLabelAdresaPrimatelja: TLabel
+      Left = 56
+      Top = 107
+      Width = 88
+      Height = 13
+      Caption = 'Adresa primatelja:'
+    end
+    object eNazivPrimateljaFilter: TEdit
+      Left = 170
+      Top = 37
+      Width = 151
+      Height = 21
+      TabOrder = 0
+    end
+    object eOIBPrimateljaFilter: TEdit
+      Left = 170
+      Top = 69
+      Width = 151
+      Height = 21
+      TabOrder = 1
+    end
+    object eAdresaPrimateljaFilter: TEdit
+      Left = 170
+      Top = 104
+      Width = 151
+      Height = 21
+      TabOrder = 2
+    end
+    object btnFilter: TButton
+      Left = 96
+      Top = 168
+      Width = 75
+      Height = 25
+      Caption = 'Filtriraj'
+      TabOrder = 3
+    end
+    object btnClear: TButton
+      Left = 192
+      Top = 168
+      Width = 75
+      Height = 25
+      Caption = 'O'#269'isti polja'
+      TabOrder = 4
+    end
   end
   object DBGrid1: TDBGrid
     Left = 412
     Top = 16
     Width = 677
     Height = 249
+    DataSource = dPrimatelji
     TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'ID'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'naziv'
+        Width = 120
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'oib'
+        Width = 120
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'adresa'
+        Width = 256
+        Visible = True
+      end>
   end
-  object MainMenu1: TMainMenu
-    Left = 168
-    Top = 264
-    object Menu1: TMenuItem
-      Caption = 'File'
-      object NeweInvoice1: TMenuItem
-        Caption = 'New Invoice'
-      end
-      object Import1: TMenuItem
-        Caption = 'Import Invoice'
-        object fromXML1: TMenuItem
-          Caption = 'From XML'
-        end
-        object FromJson1: TMenuItem
-          Caption = 'From Json'
-        end
-        object fromeInv1: TMenuItem
-          Caption = 'from .inv'
-        end
-      end
-      object N1: TMenuItem
-        Caption = '-'
-      end
-      object Exit1: TMenuItem
-        Caption = 'Exit'
-      end
-    end
-    object Options1: TMenuItem
-      Caption = 'Options'
-      object ChangeLanguage1: TMenuItem
-        Caption = 'Change Language'
-        object Englush1: TMenuItem
-          Caption = 'English'
-        end
-        object Croatian1: TMenuItem
-          Caption = 'Croatian'
-        end
-      end
-    end
+  object DBNavigatorPrimatelji: TDBNavigator
+    Left = 412
+    Top = 271
+    Width = 240
+    Height = 25
+    DataSource = dPrimatelji
+    TabOrder = 2
   end
-  object SQLiteConnection: TSQLConnection
-    DriverName = 'Sqlite'
-    Params.Strings = (
-      'DriverName=Sqlite'
-      'Database=C:\sqlite\ntp.db')
+  object ADOConnection1: TADOConnection
     Connected = True
-    Left = 264
-    Top = 344
+    ConnectionString = 
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\sqlite\Database1' +
+      '.mdb;Persist Security Info=False'
+    LoginPrompt = False
+    Mode = cmShareDenyNone
+    Provider = 'Microsoft.Jet.OLEDB.4.0'
+    Left = 88
+    Top = 456
   end
-  object racuni: TSQLTable
-    ObjectView = True
+  object tPrimatelji: TADOTable
     Active = True
-    MaxBlobSize = -1
-    SQLConnection = SQLiteConnection
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    TableName = 'primatelji'
+    Left = 200
+    Top = 440
+  end
+  object tRacuni: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
     TableName = 'racuni'
-    Left = 152
-    Top = 352
+    Left = 280
+    Top = 448
   end
-  object DRacuni: TDataSource
-    DataSet = racuni
-    Left = 256
-    Top = 520
+  object dPrimatelji: TDataSource
+    DataSet = tPrimatelji
+    Left = 84
+    Top = 568
   end
-  object SQLQuery1: TSQLQuery
-    DataSource = DRacuni
-    MaxBlobSize = -1
-    Params = <>
-    SQLConnection = SQLiteConnection
-    Left = 376
-    Top = 392
+  object dRacuni: TDataSource
+    DataSet = tRacuni
+    Left = 416
+    Top = 576
   end
 end

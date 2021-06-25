@@ -2,12 +2,13 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>1899.12.30 00:00:00.000.037,=C:\Users\imihic\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.387,C:\Users\imihic\Documents\Embarcadero\Studio\Projects\Project1.cbproj=C:\Users\imihic\Documents\Embarcadero\Studio\Projects\Project1.cbproj</Transaction>
     <Transaction>1899.12.30 00:00:00.000.256,=C:\Users\imihic\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.387,C:\Users\imihic\Documents\Embarcadero\Studio\Projects\Project1.cbproj=C:\Users\imihic\Documents\Embarcadero\Studio\Projects\Project1.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.771,C:\Users\imihic\Documents\Embarcadero\Studio\Projects\Project1.cbproj=C:\Users\imihic\Documents\Embarcadero\Studio\Projects\Project1.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.057,=C:\Users\imihic\Documents\Embarcadero\Studio\Projects\Unit2.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.851,=C:\Users\imihic\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
     <Transaction>1899.12.30 00:00:00.000.684,=C:\Users\imihic\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
-    <Transaction>2021.06.23 13:02:16.006,=C:\Users\imihic\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
-    <Transaction>2021.06.23 13:02:16.057,=C:\Users\imihic\Documents\Embarcadero\Studio\Projects\Unit2.cpp</Transaction>
-    <Transaction>2021.06.23 13:42:08.771,C:\Users\imihic\Documents\Embarcadero\Studio\Projects\Project1.cbproj=C:\Users\imihic\Documents\Embarcadero\Studio\Projects\Project1.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.006,=C:\Users\imihic\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>2021.06.25 16:04:05.779,=C:\Users\imihic\Documents\Embarcadero\Studio\Projects\Unit3.cpp</Transaction>
   </Transactions>
 </BorlandProject>
