@@ -4,6 +4,8 @@
 #pragma hdrstop
 
 #include "Unit2.h"
+#include "Unit3.h"
+#include "Unit4.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -16,5 +18,22 @@ __fastcall TeInvoice::TeInvoice(TComponent* Owner)
 //---------------------------------------------------------------------------
 
 
+
+
+
+
+void __fastcall TeInvoice::GotoInvoiceMenu1Click(TObject *Sender)
+{
+	Form3->ShowModal();
+}
+//---------------------------------------------------------------------------
+
+
+
+void __fastcall TeInvoice::submenuNewInvoiceClick(TObject *Sender)
+{
+	formCreateNewInvoice->Show();
+}
+//---------------------------------------------------------------------------
 
 

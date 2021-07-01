@@ -10,6 +10,7 @@ object eInvoice: TeInvoice
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  Menu = MainMenu1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
@@ -94,25 +95,6 @@ object eInvoice: TeInvoice
     Columns = <
       item
         Expanded = False
-        FieldName = 'ID'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'naziv'
-        Width = 120
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'oib'
-        Width = 120
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'adresa'
-        Width = 256
         Visible = True
       end>
   end
@@ -125,40 +107,127 @@ object eInvoice: TeInvoice
     TabOrder = 2
   end
   object ADOConnection1: TADOConnection
-    Connected = True
     ConnectionString = 
-      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\sqlite\Database1' +
-      '.mdb;Persist Security Info=False'
+      'Provider=Microsoft.Jet.OLEDB.4.0;User ID=Admin;Data Source=C:\sq' +
+      'lite\Database1.mdb;Mode=Share Deny None;Persist Security Info=Fa' +
+      'lse;Jet OLEDB:System database="";Jet OLEDB:Registry Path="";Jet ' +
+      'OLEDB:Database Password="";Jet OLEDB:Engine Type=5;Jet OLEDB:Dat' +
+      'abase Locking Mode=1;Jet OLEDB:Global Partial Bulk Ops=2;Jet OLE' +
+      'DB:Global Bulk Transactions=1;Jet OLEDB:New Database Password=""' +
+      ';Jet OLEDB:Create System Database=False;Jet OLEDB:Encrypt Databa' +
+      'se=False;Jet OLEDB:Don'#39't Copy Locale on Compact=False;Jet OLEDB:' +
+      'Compact Without Replica Repair=False;Jet OLEDB:SFP=False'
     LoginPrompt = False
-    Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Left = 88
-    Top = 456
+    Top = 416
   end
   object tPrimatelji: TADOTable
-    Active = True
     Connection = ADOConnection1
     CursorType = ctStatic
     TableName = 'primatelji'
-    Left = 200
-    Top = 440
+    Left = 176
+    Top = 416
   end
   object tRacuni: TADOTable
-    Active = True
     Connection = ADOConnection1
     CursorType = ctStatic
     TableName = 'racuni'
-    Left = 280
+    Left = 320
     Top = 448
+    object tRacuniID: TAutoIncField
+      FieldName = 'ID'
+      ReadOnly = True
+    end
+    object tRacuniopis: TWideStringField
+      FieldName = 'opis'
+      Size = 50
+    end
+    object tRacuniiznos: TBCDField
+      FieldName = 'iznos'
+      Precision = 19
+    end
+    object tRacunistatus: TWideStringField
+      FieldName = 'status'
+      Size = 255
+    end
+    object tRacuniprimateljID: TIntegerField
+      FieldName = 'primateljID'
+    end
   end
   object dPrimatelji: TDataSource
     DataSet = tPrimatelji
     Left = 84
-    Top = 568
+    Top = 528
   end
   object dRacuni: TDataSource
     DataSet = tRacuni
-    Left = 416
-    Top = 576
+    Left = 272
+    Top = 536
+  end
+  object MainMenu1: TMainMenu
+    Left = 160
+    Top = 568
+    object menuFile: TMenuItem
+      Caption = 'File'
+      object submenuNewInvoice: TMenuItem
+        Caption = 'New Invoice'
+        OnClick = submenuNewInvoiceClick
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object submenuImport: TMenuItem
+        Caption = 'Import'
+        object fromXML1: TMenuItem
+          Caption = 'from XML'
+        end
+        object fromeInvoice1: TMenuItem
+          Caption = 'from .inv'
+        end
+      end
+      object Export1: TMenuItem
+        Caption = 'Export'
+        object submenuExportToXML: TMenuItem
+          Caption = 'to XML'
+        end
+        object submenuExportToInv: TMenuItem
+          Caption = 'to .inv'
+        end
+      end
+      object N2: TMenuItem
+        Caption = '-'
+      end
+      object submenuQuit: TMenuItem
+        Caption = 'Quit'
+      end
+    end
+    object View1: TMenuItem
+      Caption = 'View'
+      object submenuGotoUsersmenu: TMenuItem
+        AutoCheck = True
+        Caption = 'Go to Users Menu'
+      end
+      object GotoInvoiceMenu1: TMenuItem
+        Caption = 'Go to Invoice Menu'
+        Checked = True
+        OnClick = GotoInvoiceMenu1Click
+      end
+    end
+    object Options1: TMenuItem
+      Caption = 'Options'
+      object ChangeLanguage1: TMenuItem
+        Caption = 'Change Language'
+        object Englisj1: TMenuItem
+          AutoCheck = True
+          Caption = 'English'
+          Checked = True
+        end
+        object Croatian1: TMenuItem
+          AutoCheck = True
+          Caption = 'Croatian'
+        end
+      end
+    end
   end
 end

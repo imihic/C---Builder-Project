@@ -1,6 +1,7 @@
 object Form3: TForm3
   Left = 0
   Top = 0
+  ActiveControl = DBGrid1
   Caption = 'Form3'
   ClientHeight = 609
   ClientWidth = 1083
@@ -18,7 +19,7 @@ object Form3: TForm3
     Top = 8
     Width = 1067
     Height = 345
-    DataSource = dRacuni
+    DataSource = dRacuniJoin
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -28,29 +29,18 @@ object Form3: TForm3
     Columns = <
       item
         Expanded = False
-        FieldName = 'ID'
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'opis'
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'iznos'
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'status'
-        Width = 150
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'primateljID'
-        Title.Caption = 'Primatelj'
         Visible = True
       end>
   end
@@ -59,7 +49,7 @@ object Form3: TForm3
     Top = 464
     Width = 1067
     Height = 95
-    DataSource = dRacuni
+    DataSource = dRacuniJoin
     ListSource = dPrimatelji
     TabOrder = 1
   end
@@ -70,10 +60,26 @@ object Form3: TForm3
     TableName = 'primatelji'
     Left = 200
     Top = 385
+    object tPrimateljiID: TAutoIncField
+      FieldName = 'ID'
+      ReadOnly = True
+    end
+    object tPrimateljinaziv: TWideStringField
+      FieldName = 'naziv'
+      Size = 50
+    end
+    object tPrimateljioib: TWideStringField
+      FieldName = 'oib'
+      Size = 255
+    end
+    object tPrimateljiadresa: TWideStringField
+      FieldName = 'adresa'
+      Size = 255
+    end
   end
   object dRacuni: TDataSource
     DataSet = tRacuni
-    Left = 416
+    Left = 376
     Top = 385
   end
   object tRacuni: TADOTable
@@ -84,6 +90,25 @@ object Form3: TForm3
     TableName = 'racuni'
     Left = 280
     Top = 385
+    object tRacuniID: TAutoIncField
+      FieldName = 'ID'
+      ReadOnly = True
+    end
+    object tRacuniopis: TWideStringField
+      FieldName = 'opis'
+      Size = 50
+    end
+    object tRacuniiznos: TBCDField
+      FieldName = 'iznos'
+      Precision = 19
+    end
+    object tRacunistatus: TWideStringField
+      FieldName = 'status'
+      Size = 255
+    end
+    object tRacuniprimateljID: TIntegerField
+      FieldName = 'primateljID'
+    end
   end
   object ADOConnection1: TADOConnection
     Connected = True
@@ -103,6 +128,7 @@ object Form3: TForm3
   end
   object ADOQuery1: TADOQuery
     Connection = ADOConnection1
+    CursorType = ctStatic
     DataSource = dRacuni
     Parameters = <>
     SQL.Strings = (
@@ -117,5 +143,34 @@ object Form3: TForm3
         'atelji.id;')
     Left = 496
     Top = 400
+    object ADOQuery1id: TAutoIncField
+      FieldName = 'id'
+      ReadOnly = True
+    end
+    object ADOQuery1opis: TWideStringField
+      FieldName = 'opis'
+      Size = 50
+    end
+    object ADOQuery1iznos: TBCDField
+      FieldName = 'iznos'
+      Precision = 19
+    end
+    object ADOQuery1status: TWideStringField
+      FieldName = 'status'
+      Size = 255
+    end
+    object ADOQuery1Nazivprimatelja: TWideStringField
+      FieldName = #39'Naziv primatelja'#39
+      Size = 50
+    end
+    object ADOQuery1OIBprimatelja: TWideStringField
+      FieldName = #39'OIB primatelja'#39
+      Size = 255
+    end
+  end
+  object dRacuniJoin: TDataSource
+    DataSet = ADOQuery1
+    Left = 616
+    Top = 408
   end
 end

@@ -38,6 +38,32 @@ __published:	// IDE-managed Components
 	TLabel *filterLabelAdresaPrimatelja;
 	TButton *btnFilter;
 	TButton *btnClear;
+	TMainMenu *MainMenu1;
+	TMenuItem *menuFile;
+	TMenuItem *submenuNewInvoice;
+	TMenuItem *submenuImport;
+	TMenuItem *fromXML1;
+	TMenuItem *fromeInvoice1;
+	TMenuItem *Export1;
+	TMenuItem *submenuExportToXML;
+	TMenuItem *submenuExportToInv;
+	TMenuItem *N1;
+	TMenuItem *N2;
+	TMenuItem *submenuQuit;
+	TMenuItem *View1;
+	TMenuItem *submenuGotoUsersmenu;
+	TMenuItem *GotoInvoiceMenu1;
+	TMenuItem *Options1;
+	TMenuItem *ChangeLanguage1;
+	TMenuItem *Englisj1;
+	TMenuItem *Croatian1;
+	TAutoIncField *tRacuniID;
+	TWideStringField *tRacuniopis;
+	TBCDField *tRacuniiznos;
+	TWideStringField *tRacunistatus;
+	TIntegerField *tRacuniprimateljID;
+	void __fastcall GotoInvoiceMenu1Click(TObject *Sender);
+	void __fastcall submenuNewInvoiceClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TeInvoice(TComponent* Owner);

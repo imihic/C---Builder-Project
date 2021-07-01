@@ -4,8 +4,9 @@
 #pragma hdrstop
 #include <tchar.h>
 //---------------------------------------------------------------------------
-USEFORM("Unit2.cpp", eInvoice);
 USEFORM("Unit3.cpp", Form3);
+USEFORM("Unit2.cpp", eInvoice);
+USEFORM("Unit4.cpp", formCreateNewInvoice);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
@@ -15,6 +16,7 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 		Application->MainFormOnTaskBar = true;
 		Application->CreateForm(__classid(TeInvoice), &eInvoice);
 		Application->CreateForm(__classid(TForm3), &Form3);
+		Application->CreateForm(__classid(TformCreateNewInvoice), &formCreateNewInvoice);
 		Application->Run();
 	}
 	catch (Exception &exception)

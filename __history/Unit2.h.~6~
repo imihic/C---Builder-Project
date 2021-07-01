@@ -1,0 +1,67 @@
+//---------------------------------------------------------------------------
+
+#ifndef Unit2H
+#define Unit2H
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <Vcl.ComCtrls.hpp>
+#include <Vcl.Menus.hpp>
+#include <Data.DB.hpp>
+#include <Data.Win.ADODB.hpp>
+#include <Data.DbxSqlite.hpp>
+#include <Data.SqlExpr.hpp>
+#include <Data.FMTBcd.hpp>
+#include <Vcl.DBGrids.hpp>
+#include <Vcl.Grids.hpp>
+#include <Vcl.DBCtrls.hpp>
+#include <Vcl.ExtCtrls.hpp>
+//---------------------------------------------------------------------------
+class TeInvoice : public TForm
+{
+__published:	// IDE-managed Components
+	TGroupBox *GroupBox1;
+	TDBGrid *DBGrid1;
+	TADOConnection *ADOConnection1;
+	TADOTable *tPrimatelji;
+	TADOTable *tRacuni;
+	TDataSource *dPrimatelji;
+	TDataSource *dRacuni;
+	TDBNavigator *DBNavigatorPrimatelji;
+	TLabel *filterLabelPrimateljNaziv;
+	TEdit *eNazivPrimateljaFilter;
+	TLabel *filterLabelOIBPrimatelja;
+	TEdit *eOIBPrimateljaFilter;
+	TEdit *eAdresaPrimateljaFilter;
+	TLabel *filterLabelAdresaPrimatelja;
+	TButton *btnFilter;
+	TButton *btnClear;
+	TMainMenu *MainMenu1;
+	TMenuItem *menuFile;
+	TMenuItem *submenuNewInvoice;
+	TMenuItem *submenuImport;
+	TMenuItem *fromXML1;
+	TMenuItem *fromeInvoice1;
+	TMenuItem *Export1;
+	TMenuItem *submenuExportToXML;
+	TMenuItem *submenuExportToInv;
+	TMenuItem *N1;
+	TMenuItem *N2;
+	TMenuItem *submenuQuit;
+	TMenuItem *View1;
+	TMenuItem *submenuGotoUsersmenu;
+	TMenuItem *GotoInvoiceMenu1;
+	TMenuItem *Options1;
+	TMenuItem *ChangeLanguage1;
+	TMenuItem *Englisj1;
+	TMenuItem *Croatian1;
+private:	// User declarations
+public:		// User declarations
+	__fastcall TeInvoice(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TeInvoice *eInvoice;
+//---------------------------------------------------------------------------
+#endif

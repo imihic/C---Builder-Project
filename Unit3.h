@@ -24,6 +24,22 @@ __published:	// IDE-managed Components
 	TDBGrid *DBGrid1;
 	TDBLookupListBox *DBLookupListBox1;
 	TADOQuery *ADOQuery1;
+	TDataSource *dRacuniJoin;
+	TAutoIncField *tRacuniID;
+	TWideStringField *tRacuniopis;
+	TBCDField *tRacuniiznos;
+	TWideStringField *tRacunistatus;
+	TIntegerField *tRacuniprimateljID;
+	TAutoIncField *tPrimateljiID;
+	TWideStringField *tPrimateljinaziv;
+	TWideStringField *tPrimateljioib;
+	TWideStringField *tPrimateljiadresa;
+	TAutoIncField *ADOQuery1id;
+	TWideStringField *ADOQuery1opis;
+	TBCDField *ADOQuery1iznos;
+	TWideStringField *ADOQuery1status;
+	TWideStringField *ADOQuery1Nazivprimatelja;
+	TWideStringField *ADOQuery1OIBprimatelja;
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm3(TComponent* Owner);
