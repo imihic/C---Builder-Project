@@ -1,4 +1,4 @@
-//---------------------------------------------------------------------------
+﻿//---------------------------------------------------------------------------
 
 #include <vcl.h>
 #pragma hdrstop
@@ -25,6 +25,7 @@ __fastcall TeInvoice::TeInvoice(TComponent* Owner)
 void __fastcall TeInvoice::GotoInvoiceMenu1Click(TObject *Sender)
 {
 	Form3->ShowModal();
+    eInvoice->CloseModal();
 }
 //---------------------------------------------------------------------------
 
@@ -36,4 +37,25 @@ void __fastcall TeInvoice::submenuNewInvoiceClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+
+
+
+void __fastcall TeInvoice::btnFilterClick(TObject *Sender)
+{
+	tPrimatelji->Filter = "OIB = "  + eOIBPrimateljaFilter->Text;
+		if ( tPrimatelji->Filtered==false){
+			tPrimatelji->Filtered=true;
+			Application->MessageBox(L"Tablica uspješno filtrirana prema parametrima!", L"Informacija", MB_OK | MB_ICONINFORMATION | MB_OK);
+		}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TeInvoice::btnClearClick(TObject *Sender)
+{
+	eOIBPrimateljaFilter->Text = "";
+	eNazivPrimateljaFilter->Text = "";
+	eAdresaPrimateljaFilter->Text = "";
+	Application->MessageBox(L"Polja očišćena!", L"Informacija", MB_OK | MB_ICONINFORMATION | MB_OK);
+}
+//---------------------------------------------------------------------------
 

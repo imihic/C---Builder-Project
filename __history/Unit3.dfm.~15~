@@ -1,0 +1,211 @@
+object Form3: TForm3
+  Left = 0
+  Top = 0
+  ActiveControl = DBGrid1
+  Caption = 'Form3'
+  ClientHeight = 694
+  ClientWidth = 1083
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object DBGrid1: TDBGrid
+    Left = 8
+    Top = 8
+    Width = 1073
+    Height = 345
+    DataSource = dRacuniJoin
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'ID'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'opis'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'iznos'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'status'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'naziv'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'oib'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'adresa'
+        Visible = True
+      end>
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 8
+    Top = 359
+    Width = 240
+    Height = 25
+    DataSource = dRacuniJoin
+    TabOrder = 1
+  end
+  object GroupBox1: TGroupBox
+    Left = 8
+    Top = 390
+    Width = 1067
+    Height = 211
+    Caption = 'GroupBox1'
+    TabOrder = 2
+    object Label1: TLabel
+      Left = 3
+      Top = 24
+      Width = 900
+      Height = 13
+      Caption = 'opis'
+      FocusControl = DBEdit1
+    end
+    object Label2: TLabel
+      Left = 3
+      Top = 64
+      Width = 900
+      Height = 13
+      Caption = 'iznos'
+      FocusControl = DBEdit2
+    end
+    object Label3: TLabel
+      Left = 3
+      Top = 104
+      Width = 900
+      Height = 13
+      Caption = 'status'
+      FocusControl = DBEdit3
+    end
+    object Label4: TLabel
+      Left = 3
+      Top = 144
+      Width = 900
+      Height = 13
+      Caption = 'Naziv primatelja'
+      FocusControl = DBEdit4
+    end
+    object DBEdit1: TDBEdit
+      Left = 3
+      Top = 40
+      Width = 900
+      Height = 21
+      DataField = 'opis'
+      DataSource = dRacuniJoin
+      TabOrder = 0
+    end
+    object DBEdit2: TDBEdit
+      Left = 3
+      Top = 80
+      Width = 900
+      Height = 21
+      DataField = 'iznos'
+      DataSource = dRacuniJoin
+      TabOrder = 1
+    end
+    object DBEdit3: TDBEdit
+      Left = 3
+      Top = 120
+      Width = 900
+      Height = 21
+      DataField = 'status'
+      DataSource = dRacuniJoin
+      TabOrder = 2
+    end
+    object DBEdit4: TDBEdit
+      Left = 3
+      Top = 160
+      Width = 900
+      Height = 21
+      DataField = 'naziv'
+      DataSource = dRacuniJoin
+      TabOrder = 3
+    end
+  end
+  object ADOConnection1: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\sqlite\Database1' +
+      '.mdb;Persist Security Info=False'
+    LoginPrompt = False
+    Mode = cmShareDenyNone
+    Provider = 'Microsoft.Jet.OLEDB.4.0'
+    Left = 768
+    Top = 97
+  end
+  object ADOQuery1: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      
+        'SELECT racuni.ID, racuni.opis, racuni.iznos, racuni.status, prim' +
+        'atelji.naziv, primatelji.oib, primatelji.adresa'
+      
+        'FROM primatelji INNER JOIN racuni ON primatelji.[ID] = racuni.[p' +
+        'rimateljID];')
+    Left = 736
+    Top = 40
+    object ADOQuery1ID: TAutoIncField
+      FieldName = 'ID'
+      ReadOnly = True
+    end
+    object ADOQuery1opis: TWideStringField
+      FieldName = 'opis'
+      Size = 50
+    end
+    object ADOQuery1iznos: TIntegerField
+      FieldName = 'iznos'
+    end
+    object ADOQuery1status: TWideStringField
+      FieldName = 'status'
+      Size = 255
+    end
+    object ADOQuery1naziv: TWideStringField
+      DisplayLabel = 'Naziv primatelja'
+      FieldName = 'naziv'
+      Size = 50
+    end
+    object ADOQuery1oib: TWideStringField
+      DisplayLabel = 'OIB primatelja'
+      FieldName = 'oib'
+      Size = 255
+    end
+    object ADOQuery1adresa: TWideStringField
+      DisplayLabel = 'Adresa primatelja'
+      FieldName = 'adresa'
+      Size = 255
+    end
+  end
+  object dRacuniJoin: TDataSource
+    DataSet = ADOQuery1
+    Left = 640
+    Top = 32
+  end
+end

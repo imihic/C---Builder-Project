@@ -18,6 +18,7 @@
 #include <Vcl.Grids.hpp>
 #include <Vcl.DBCtrls.hpp>
 #include <Vcl.ExtCtrls.hpp>
+#include <Vcl.Mask.hpp>
 //---------------------------------------------------------------------------
 class TeInvoice : public TForm
 {
@@ -26,9 +27,7 @@ __published:	// IDE-managed Components
 	TDBGrid *DBGrid1;
 	TADOConnection *ADOConnection1;
 	TADOTable *tPrimatelji;
-	TADOTable *tRacuni;
 	TDataSource *dPrimatelji;
-	TDataSource *dRacuni;
 	TDBNavigator *DBNavigatorPrimatelji;
 	TLabel *filterLabelPrimateljNaziv;
 	TEdit *eNazivPrimateljaFilter;
@@ -57,13 +56,21 @@ __published:	// IDE-managed Components
 	TMenuItem *ChangeLanguage1;
 	TMenuItem *Englisj1;
 	TMenuItem *Croatian1;
-	TAutoIncField *tRacuniID;
-	TWideStringField *tRacuniopis;
-	TBCDField *tRacuniiznos;
-	TWideStringField *tRacunistatus;
-	TIntegerField *tRacuniprimateljID;
+	TAutoIncField *tPrimateljiID;
+	TWideStringField *tPrimateljinaziv;
+	TWideStringField *tPrimateljioib;
+	TWideStringField *tPrimateljiadresa;
+	TGroupBox *GroupBox2;
+	TLabel *Label1;
+	TDBEdit *DBEdit1;
+	TLabel *Label2;
+	TDBEdit *DBEdit2;
+	TLabel *Label3;
+	TDBEdit *DBEdit3;
 	void __fastcall GotoInvoiceMenu1Click(TObject *Sender);
 	void __fastcall submenuNewInvoiceClick(TObject *Sender);
+	void __fastcall btnFilterClick(TObject *Sender);
+	void __fastcall btnClearClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TeInvoice(TComponent* Owner);

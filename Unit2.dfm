@@ -54,6 +54,7 @@ object eInvoice: TeInvoice
       Top = 69
       Width = 151
       Height = 21
+      NumbersOnly = True
       TabOrder = 1
     end
     object eAdresaPrimateljaFilter: TEdit
@@ -70,6 +71,7 @@ object eInvoice: TeInvoice
       Height = 25
       Caption = 'Filtriraj'
       TabOrder = 3
+      OnClick = btnFilterClick
     end
     object btnClear: TButton
       Left = 192
@@ -78,6 +80,7 @@ object eInvoice: TeInvoice
       Height = 25
       Caption = 'O'#269'isti polja'
       TabOrder = 4
+      OnClick = btnClearClick
     end
   end
   object DBGrid1: TDBGrid
@@ -95,6 +98,26 @@ object eInvoice: TeInvoice
     Columns = <
       item
         Expanded = False
+        FieldName = 'ID'
+        Width = 32
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'naziv'
+        Width = 320
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'oib'
+        Width = 329
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'adresa'
+        Width = 329
         Visible = True
       end>
   end
@@ -106,7 +129,67 @@ object eInvoice: TeInvoice
     DataSource = dPrimatelji
     TabOrder = 2
   end
+  object GroupBox2: TGroupBox
+    Left = 8
+    Top = 271
+    Width = 398
+    Height = 178
+    Caption = 'Uredi aktivnog primatelja'
+    TabOrder = 3
+    object Label1: TLabel
+      Left = 15
+      Top = 32
+      Width = 360
+      Height = 13
+      Caption = 'naziv'
+      FocusControl = DBEdit1
+    end
+    object Label2: TLabel
+      Left = 15
+      Top = 72
+      Width = 360
+      Height = 13
+      Caption = 'oib'
+      FocusControl = DBEdit2
+    end
+    object Label3: TLabel
+      Left = 15
+      Top = 112
+      Width = 360
+      Height = 13
+      Caption = 'adresa'
+      FocusControl = DBEdit3
+    end
+    object DBEdit1: TDBEdit
+      Left = 15
+      Top = 48
+      Width = 360
+      Height = 21
+      DataField = 'naziv'
+      DataSource = dPrimatelji
+      TabOrder = 0
+    end
+    object DBEdit2: TDBEdit
+      Left = 15
+      Top = 88
+      Width = 360
+      Height = 21
+      DataField = 'oib'
+      DataSource = dPrimatelji
+      TabOrder = 1
+    end
+    object DBEdit3: TDBEdit
+      Left = 15
+      Top = 128
+      Width = 360
+      Height = 21
+      DataField = 'adresa'
+      DataSource = dPrimatelji
+      TabOrder = 2
+    end
+  end
   object ADOConnection1: TADOConnection
+    Connected = True
     ConnectionString = 
       'Provider=Microsoft.Jet.OLEDB.4.0;User ID=Admin;Data Source=C:\sq' +
       'lite\Database1.mdb;Mode=Share Deny None;Persist Security Info=Fa' +
@@ -118,56 +201,43 @@ object eInvoice: TeInvoice
       'se=False;Jet OLEDB:Don'#39't Copy Locale on Compact=False;Jet OLEDB:' +
       'Compact Without Replica Repair=False;Jet OLEDB:SFP=False'
     LoginPrompt = False
+    Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Left = 88
-    Top = 416
+    Top = 480
   end
   object tPrimatelji: TADOTable
+    Active = True
     Connection = ADOConnection1
     CursorType = ctStatic
     TableName = 'primatelji'
-    Left = 176
-    Top = 416
-  end
-  object tRacuni: TADOTable
-    Connection = ADOConnection1
-    CursorType = ctStatic
-    TableName = 'racuni'
-    Left = 320
-    Top = 448
-    object tRacuniID: TAutoIncField
+    Left = 32
+    Top = 480
+    object tPrimateljiID: TAutoIncField
       FieldName = 'ID'
       ReadOnly = True
     end
-    object tRacuniopis: TWideStringField
-      FieldName = 'opis'
+    object tPrimateljinaziv: TWideStringField
+      FieldName = 'naziv'
       Size = 50
     end
-    object tRacuniiznos: TBCDField
-      FieldName = 'iznos'
-      Precision = 19
-    end
-    object tRacunistatus: TWideStringField
-      FieldName = 'status'
+    object tPrimateljioib: TWideStringField
+      FieldName = 'oib'
       Size = 255
     end
-    object tRacuniprimateljID: TIntegerField
-      FieldName = 'primateljID'
+    object tPrimateljiadresa: TWideStringField
+      FieldName = 'adresa'
+      Size = 255
     end
   end
   object dPrimatelji: TDataSource
     DataSet = tPrimatelji
-    Left = 84
-    Top = 528
-  end
-  object dRacuni: TDataSource
-    DataSet = tRacuni
-    Left = 272
-    Top = 536
+    Left = 156
+    Top = 472
   end
   object MainMenu1: TMainMenu
-    Left = 160
-    Top = 568
+    Left = 208
+    Top = 472
     object menuFile: TMenuItem
       Caption = 'File'
       object submenuNewInvoice: TMenuItem
