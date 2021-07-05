@@ -42,11 +42,27 @@ void __fastcall TeInvoice::submenuNewInvoiceClick(TObject *Sender)
 
 void __fastcall TeInvoice::btnFilterClick(TObject *Sender)
 {
-	tPrimatelji->Filter = "OIB = "  + eOIBPrimateljaFilter->Text;
+	if(eOIBPrimateljaFilter->Text != ""){
+		tPrimatelji->Filter = "OIB = "  + eOIBPrimateljaFilter->Text;
 		if ( tPrimatelji->Filtered==false){
 			tPrimatelji->Filtered=true;
-			Application->MessageBox(L"Tablica uspješno filtrirana prema parametrima!", L"Informacija", MB_OK | MB_ICONINFORMATION | MB_OK);
+			Application->MessageBox(L"Tablica uspješno filtrirana prema OIB-u!", L"Informacija", MB_OK | MB_ICONINFORMATION | MB_OK);
 		}
+	}
+	else if(eNazivPrimateljaFilter->Text != ""){
+		tPrimatelji->Filter = "naziv LIKE *"  + eOIBPrimateljaFilter->Text + "*";
+		if ( tPrimatelji->Filtered==false){
+			tPrimatelji->Filtered=true;
+			Application->MessageBox(L"Tablica uspješno filtrirana prema nazivu!", L"Informacija", MB_OK | MB_ICONINFORMATION | MB_OK);
+		}
+	}
+	else if(eAdresaPrimateljaFilter->Text != ""){
+		tPrimatelji->Filter = "adresa LIKE *"  + eOIBPrimateljaFilter->Text + "*";
+		if ( tPrimatelji->Filtered==false){
+			tPrimatelji->Filtered=true;
+			Application->MessageBox(L"Tablica uspješno filtrirana prema adresi!", L"Informacija", MB_OK | MB_ICONINFORMATION | MB_OK);
+		}
+	}
 }
 //---------------------------------------------------------------------------
 
@@ -56,6 +72,13 @@ void __fastcall TeInvoice::btnClearClick(TObject *Sender)
 	eNazivPrimateljaFilter->Text = "";
 	eAdresaPrimateljaFilter->Text = "";
 	Application->MessageBox(L"Polja očišćena!", L"Informacija", MB_OK | MB_ICONINFORMATION | MB_OK);
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TeInvoice::Settings1Click(TObject *Sender)
+{
+	Form5->ShowModal();
 }
 //---------------------------------------------------------------------------
 

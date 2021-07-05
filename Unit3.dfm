@@ -60,7 +60,6 @@ object Form3: TForm3
       item
         Expanded = False
         FieldName = 'oib'
-        Width = 64
         Visible = True
       end
       item
@@ -176,18 +175,6 @@ object Form3: TForm3
       DataField = 'adresa'
       DataSource = dRacuniJoin
       TabOrder = 4
-    end
-    object DBLookupComboBox1: TDBLookupComboBox
-      Left = 16
-      Top = 109
-      Width = 145
-      Height = 21
-      DataField = 'status'
-      DataSource = dRacuniJoin
-      KeyField = 'status'
-      ListField = 'status'
-      ListSource = dStatusi
-      TabOrder = 5
     end
   end
   object ADOConnection1: TADOConnection

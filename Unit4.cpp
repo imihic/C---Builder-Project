@@ -16,15 +16,18 @@ __fastcall TformCreateNewInvoice::TformCreateNewInvoice(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TformCreateNewInvoice::btnCreateNewInvoiceClick(TObject *Sender)
 {
-	formCreateNewInvoice->tRacuni->Open();
 	formCreateNewInvoice->tRacuni->Append(); // dodaj novi zapis
-	formCreateNewInvoice->tRacuni->FieldByName("primateljID")->AsInteger = 1;
-	formCreateNewInvoice->tRacuni->FieldByName("opis")->AsString = "Neki opis";
+	formCreateNewInvoice->tRacuni->FieldByName("primateljID")->AsInteger = DBLookupComboBox1->KeyValue;
+	formCreateNewInvoice->tRacuni->FieldByName("opis")->AsString = eDescription->Text;
 	formCreateNewInvoice->tRacuni->FieldByName("status")->AsString = "Nije potpisan";
-	formCreateNewInvoice->tRacuni->FieldByName("iznos")->AsInteger = 100000;
+	formCreateNewInvoice->tRacuni->FieldByName("iznos")->AsString = eValue->Text;
 	formCreateNewInvoice->tRacuni->Post(); // pohrani zapis
-	formCreateNewInvoice->tRacuni->Close();
+
+	Application->MessageBox(L"Novi eRaèun kreiran!", L"Informacija", MB_OK | MB_ICONINFORMATION | MB_OK);
 }
 //---------------------------------------------------------------------------
+
+
+
 
 

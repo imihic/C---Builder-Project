@@ -34,8 +34,6 @@ object formCreateNewInvoice: TformCreateNewInvoice
       Height = 21
       BiDiMode = bdLeftToRight
       Ctl3D = True
-      DataField = 'primateljID'
-      DataSource = dRacuni
       KeyField = 'ID'
       ListField = 'naziv'
       ListSource = dPrimatelji
@@ -58,13 +56,13 @@ object formCreateNewInvoice: TformCreateNewInvoice
       Height = 13
       Caption = 'Please input total value: '
     end
-    object DBEdit3: TDBEdit
-      Left = 144
-      Top = 29
-      Width = 264
+    object eValue: TEdit
+      Left = 16
+      Top = 51
+      Width = 654
       Height = 21
-      DataField = 'iznos'
-      DataSource = dRacuni
+      Alignment = taCenter
+      NumbersOnly = True
       TabOrder = 0
     end
   end
@@ -75,13 +73,12 @@ object formCreateNewInvoice: TformCreateNewInvoice
     Height = 91
     Caption = 'Invoice description'
     TabOrder = 2
-    object DBEdit1: TDBEdit
+    object eDescription: TEdit
       Left = 16
-      Top = 38
+      Top = 40
       Width = 654
       Height = 21
-      DataField = 'opis'
-      DataSource = dRacuni
+      Alignment = taCenter
       TabOrder = 0
     end
   end
@@ -137,6 +134,7 @@ object formCreateNewInvoice: TformCreateNewInvoice
     Top = 290
   end
   object tRacuni: TADOTable
+    Active = True
     Connection = ADOConnection1
     CursorType = ctStatic
     TableName = 'racuni'

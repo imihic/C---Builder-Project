@@ -45,7 +45,6 @@ __published:	// IDE-managed Components
 	TDBEdit *DBEdit5;
 	TLabel *Label6;
 	TDBEdit *DBEdit6;
-	TDBLookupComboBox *DBLookupComboBox1;
 	TAutoIncField *tStatusiID;
 private:	// User declarations
 public:		// User declarations

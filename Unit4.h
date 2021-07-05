@@ -28,9 +28,7 @@ __published:	// IDE-managed Components
 	TDataSource *dRacuni;
 	TGroupBox *GroupBox2;
 	TLabel *Label2;
-	TDBEdit *DBEdit3;
 	TGroupBox *GroupBox3;
-	TDBEdit *DBEdit1;
 	TButton *btnCreateNewInvoice;
 	TAutoIncField *tPrimateljiID;
 	TWideStringField *tPrimateljinaziv;
@@ -41,6 +39,8 @@ __published:	// IDE-managed Components
 	TIntegerField *tRacuniiznos;
 	TWideStringField *tRacunistatus;
 	TIntegerField *tRacuniprimateljID;
+	TEdit *eDescription;
+	TEdit *eValue;
 	void __fastcall btnCreateNewInvoiceClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations

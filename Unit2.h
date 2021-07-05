@@ -67,10 +67,38 @@ __published:	// IDE-managed Components
 	TDBEdit *DBEdit2;
 	TLabel *Label3;
 	TDBEdit *DBEdit3;
+	TMenuItem *menuTools;
+	TMenuItem *submenuGenerateReport;
+	TDBGrid *DBGrid2;
+	TDataSource *dRacuni;
+	TADOTable *tRacuni;
+	TAutoIncField *tRacuniID;
+	TWideStringField *tRacuniopis;
+	TIntegerField *tRacuniiznos;
+	TWideStringField *tRacunistatus;
+	TIntegerField *tRacuniprimateljID;
+	TDBNavigator *DBNavigator1;
+	TButton *Button1;
+	TButton *Button2;
+	TButton *Button3;
+	TGroupBox *GroupBox3;
+	TLabel *Label4;
+	TEdit *Edit1;
+	TEdit *Edit2;
+	TLabel *Label5;
+	TButton *Button4;
+	TButton *Button5;
+	TGroupBox *GroupBox4;
+	TLabel *Label6;
+	TDBEdit *DBEdit4;
+	TLabel *Label7;
+	TDBEdit *DBEdit5;
+	TMenuItem *Settings1;
 	void __fastcall GotoInvoiceMenu1Click(TObject *Sender);
 	void __fastcall submenuNewInvoiceClick(TObject *Sender);
 	void __fastcall btnFilterClick(TObject *Sender);
 	void __fastcall btnClearClick(TObject *Sender);
+	void __fastcall Settings1Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TeInvoice(TComponent* Owner);
