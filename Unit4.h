@@ -41,6 +41,11 @@ __published:	// IDE-managed Components
 	TIntegerField *tRacuniprimateljID;
 	TEdit *eDescription;
 	TEdit *eValue;
+	TGroupBox *GroupBox4;
+	TLabel *Label3;
+	TDBLookupComboBox *DBLookupComboBox2;
+	TADOTable *tVrstaDokumenta;
+	TDataSource *dVrstaDokumenta;
 	void __fastcall btnCreateNewInvoiceClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations

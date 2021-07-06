@@ -113,7 +113,7 @@ object Form5: TForm5
     TabOrder = 2
     Text = 'Edit1'
   end
-  object Button1: TButton
+  object btnSaveChanges: TButton
     Left = 135
     Top = 152
     Width = 138

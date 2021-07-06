@@ -25,7 +25,7 @@ __published:	// IDE-managed Components
 	TEdit *Edit5;
 	TUpDown *UpDown1;
 	TLabel *Label5;
-	TButton *Button1;
+	TButton *btnSaveChanges;
 	TButton *Button2;
 private:	// User declarations
 public:		// User declarations

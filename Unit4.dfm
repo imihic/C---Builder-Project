@@ -2,7 +2,7 @@ object formCreateNewInvoice: TformCreateNewInvoice
   Left = 0
   Top = 0
   Caption = 'Create New Invoice'
-  ClientHeight = 363
+  ClientHeight = 429
   ClientWidth = 778
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -18,18 +18,18 @@ object formCreateNewInvoice: TformCreateNewInvoice
     Top = 8
     Width = 762
     Height = 73
-    Caption = 'Buyer '
+    Caption = 'Primatelj'
     TabOrder = 0
     object Label1: TLabel
-      Left = 16
-      Top = 32
-      Width = 198
+      Left = 18
+      Top = 40
+      Width = 208
       Height = 13
-      Caption = 'Please select user from dropdown menu: '
+      Caption = 'Molim odaberite primatelja iz ponu'#273'ene liste'
     end
     object DBLookupComboBox1: TDBLookupComboBox
       Left = 232
-      Top = 24
+      Top = 32
       Width = 438
       Height = 21
       BiDiMode = bdLeftToRight
@@ -44,7 +44,7 @@ object formCreateNewInvoice: TformCreateNewInvoice
   end
   object GroupBox2: TGroupBox
     Left = 8
-    Top = 184
+    Top = 280
     Width = 762
     Height = 90
     Caption = 'Invoice value'
@@ -68,7 +68,7 @@ object formCreateNewInvoice: TformCreateNewInvoice
   end
   object GroupBox3: TGroupBox
     Left = 8
-    Top = 87
+    Top = 183
     Width = 762
     Height = 91
     Caption = 'Invoice description'
@@ -84,7 +84,7 @@ object formCreateNewInvoice: TformCreateNewInvoice
   end
   object btnCreateNewInvoice: TButton
     Left = 293
-    Top = 304
+    Top = 376
     Width = 148
     Height = 25
     Hint = 'Insert'
@@ -92,6 +92,35 @@ object formCreateNewInvoice: TformCreateNewInvoice
     ImageIndex = 4
     TabOrder = 3
     OnClick = btnCreateNewInvoiceClick
+  end
+  object GroupBox4: TGroupBox
+    Left = 8
+    Top = 87
+    Width = 762
+    Height = 90
+    Caption = 'Vrsta dokumenta'
+    TabOrder = 4
+    object Label3: TLabel
+      Left = 18
+      Top = 56
+      Width = 132
+      Height = 13
+      Caption = 'Odaberite vrstu dokumenta'
+    end
+    object DBLookupComboBox2: TDBLookupComboBox
+      Left = 232
+      Top = 48
+      Width = 438
+      Height = 21
+      BiDiMode = bdLeftToRight
+      Ctl3D = True
+      KeyField = 'naziv'
+      ListField = 'naziv'
+      ListSource = dVrstaDokumenta
+      ParentBiDiMode = False
+      ParentCtl3D = False
+      TabOrder = 0
+    end
   end
   object ADOConnection1: TADOConnection
     Connected = True
@@ -102,7 +131,7 @@ object formCreateNewInvoice: TformCreateNewInvoice
     Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Left = 664
-    Top = 288
+    Top = 384
   end
   object tPrimatelji: TADOTable
     Active = True
@@ -110,7 +139,7 @@ object formCreateNewInvoice: TformCreateNewInvoice
     CursorType = ctStatic
     TableName = 'primatelji'
     Left = 504
-    Top = 288
+    Top = 384
     object tPrimateljiID: TAutoIncField
       FieldName = 'ID'
       ReadOnly = True
@@ -131,7 +160,7 @@ object formCreateNewInvoice: TformCreateNewInvoice
   object dPrimatelji: TDataSource
     DataSet = tPrimatelji
     Left = 540
-    Top = 290
+    Top = 386
   end
   object tRacuni: TADOTable
     Active = True
@@ -139,7 +168,7 @@ object formCreateNewInvoice: TformCreateNewInvoice
     CursorType = ctStatic
     TableName = 'racuni'
     Left = 584
-    Top = 288
+    Top = 384
     object tRacuniID: TAutoIncField
       FieldName = 'ID'
       ReadOnly = True
@@ -162,6 +191,19 @@ object formCreateNewInvoice: TformCreateNewInvoice
   object dRacuni: TDataSource
     DataSet = tRacuni
     Left = 624
-    Top = 290
+    Top = 386
+  end
+  object tVrstaDokumenta: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    TableName = 'vrste_dokumenta'
+    Left = 728
+    Top = 368
+  end
+  object dVrstaDokumenta: TDataSource
+    DataSet = tVrstaDokumenta
+    Left = 704
+    Top = 312
   end
 end

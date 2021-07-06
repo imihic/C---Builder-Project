@@ -2,8 +2,8 @@ object eInvoice: TeInvoice
   Left = 0
   Top = 0
   Caption = 'eInvoice'
-  ClientHeight = 664
-  ClientWidth = 1099
+  ClientHeight = 816
+  ClientWidth = 1209
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,7 +16,7 @@ object eInvoice: TeInvoice
   TextHeight = 13
   object GroupBox1: TGroupBox
     Left = 8
-    Top = 8
+    Top = 40
     Width = 398
     Height = 169
     Caption = 'Primatelji'
@@ -85,9 +85,9 @@ object eInvoice: TeInvoice
   end
   object DBGrid1: TDBGrid
     Left = 412
-    Top = 8
-    Width = 677
-    Height = 285
+    Top = 40
+    Width = 752
+    Height = 346
     DataSource = dPrimatelji
     TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
@@ -99,31 +99,49 @@ object eInvoice: TeInvoice
       item
         Expanded = False
         FieldName = 'ID'
-        Width = 32
+        Width = 16
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'naziv'
-        Width = 320
+        Width = 128
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'oib'
-        Width = 329
+        Width = 128
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'adresa'
-        Width = 329
+        Width = 256
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'porezna_shema'
+        Width = 128
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'email'
+        Width = 128
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'broj_telefona'
+        Width = 128
         Visible = True
       end>
   end
   object DBNavigatorPrimatelji: TDBNavigator
     Left = 412
-    Top = 299
+    Top = 392
     Width = 240
     Height = 25
     DataSource = dPrimatelji
@@ -131,9 +149,9 @@ object eInvoice: TeInvoice
   end
   object GroupBox2: TGroupBox
     Left = 8
-    Top = 183
+    Top = 203
     Width = 398
-    Height = 162
+    Height = 290
     Caption = 'Uredi aktivnog primatelja'
     TabOrder = 3
     object Label1: TLabel
@@ -159,6 +177,30 @@ object eInvoice: TeInvoice
       Height = 13
       Caption = 'adresa'
       FocusControl = DBEdit3
+    end
+    object Label10: TLabel
+      Left = 15
+      Top = 152
+      Width = 73
+      Height = 13
+      Caption = 'Porezna shema'
+      FocusControl = DBEdit6
+    end
+    object Label11: TLabel
+      Left = 15
+      Top = 192
+      Width = 28
+      Height = 13
+      Caption = 'E-Mail'
+      FocusControl = DBEdit7
+    end
+    object Label12: TLabel
+      Left = 15
+      Top = 232
+      Width = 62
+      Height = 13
+      Caption = 'Broj telefona'
+      FocusControl = DBEdit8
     end
     object DBEdit1: TDBEdit
       Left = 15
@@ -187,12 +229,39 @@ object eInvoice: TeInvoice
       DataSource = dPrimatelji
       TabOrder = 2
     end
+    object DBEdit6: TDBEdit
+      Left = 15
+      Top = 168
+      Width = 360
+      Height = 21
+      DataField = 'porezna_shema'
+      DataSource = dPrimatelji
+      TabOrder = 3
+    end
+    object DBEdit7: TDBEdit
+      Left = 15
+      Top = 205
+      Width = 360
+      Height = 21
+      DataField = 'email'
+      DataSource = dPrimatelji
+      TabOrder = 4
+    end
+    object DBEdit8: TDBEdit
+      Left = 15
+      Top = 251
+      Width = 360
+      Height = 21
+      DataField = 'broj_telefona'
+      DataSource = dPrimatelji
+      TabOrder = 5
+    end
   end
   object DBGrid2: TDBGrid
-    Left = 400
-    Top = 330
-    Width = 689
-    Height = 298
+    Left = 414
+    Top = 423
+    Width = 750
+    Height = 355
     DataSource = dRacuni
     TabOrder = 4
     TitleFont.Charset = DEFAULT_CHARSET
@@ -219,17 +288,24 @@ object eInvoice: TeInvoice
       item
         Expanded = False
         FieldName = 'status'
+        Width = 128
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'primateljID'
+        FieldName = 'datum_izdavanja'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Vrsta dokumenta'
+        Width = 112
         Visible = True
       end>
   end
   object DBNavigator1: TDBNavigator
     Left = 412
-    Top = 634
+    Top = 784
     Width = 216
     Height = 25
     DataSource = dRacuni
@@ -238,57 +314,71 @@ object eInvoice: TeInvoice
   end
   object Button1: TButton
     Left = 634
-    Top = 634
+    Top = 784
     Width = 83
     Height = 25
     Caption = 'Potpi'#353'i eRa'#269'un'
     TabOrder = 6
   end
   object Button2: TButton
-    Left = 895
-    Top = 634
+    Left = 959
+    Top = 784
     Width = 97
     Height = 25
     Caption = 'Po'#353'alji na E-Mail'
     TabOrder = 7
   end
   object Button3: TButton
-    Left = 998
-    Top = 634
+    Left = 1071
+    Top = 784
     Width = 93
     Height = 25
     Caption = 'Button1'
     TabOrder = 8
   end
   object GroupBox3: TGroupBox
-    Left = 8
-    Top = 351
+    Left = 10
+    Top = 495
     Width = 398
-    Height = 122
-    Caption = 'GroupBox3'
+    Height = 186
+    Caption = 'Ra'#269'uni'
     TabOrder = 9
     object Label4: TLabel
-      Left = 56
+      Left = 25
       Top = 24
-      Width = 80
+      Width = 61
       Height = 13
-      Caption = 'Naziv primatelja:'
+      Caption = 'Opis ra'#269'una:'
     end
     object Label5: TLabel
-      Left = 56
+      Left = 26
       Top = 56
-      Width = 72
+      Width = 30
       Height = 13
-      Caption = 'OIB primatelja:'
+      Caption = 'Iznos:'
     end
-    object Edit1: TEdit
+    object Label9: TLabel
+      Left = 25
+      Top = 88
+      Width = 84
+      Height = 13
+      Caption = 'Datum izdavanja:'
+    end
+    object Label8: TLabel
+      Left = 25
+      Top = 123
+      Width = 31
+      Height = 13
+      Caption = 'Status'
+    end
+    object eInvoiceDescription: TEdit
       Left = 170
       Top = 21
       Width = 151
       Height = 21
       TabOrder = 0
     end
-    object Edit2: TEdit
+    object eInvoiceAmount: TEdit
       Left = 170
       Top = 53
       Width = 151
@@ -296,31 +386,49 @@ object eInvoice: TeInvoice
       NumbersOnly = True
       TabOrder = 1
     end
-    object Button4: TButton
-      Left = 69
-      Top = 89
+    object cmbInvoiceStatus: TDBLookupComboBox
+      Left = 169
+      Top = 115
+      Width = 145
+      Height = 21
+      ListField = 'status'
+      ListSource = dStatusi
+      TabOrder = 2
+    end
+    object dtpInvoiceIssueDate: TDateTimePicker
+      Left = 170
+      Top = 88
+      Width = 186
+      Height = 21
+      Time = 0.549629259257926600
+      DoubleBuffered = False
+      ParentDoubleBuffered = False
+      TabOrder = 3
+    end
+    object btnFilterInvoice: TButton
+      Left = 88
+      Top = 149
       Width = 75
       Height = 25
       Caption = 'Filtriraj'
-      TabOrder = 2
-      OnClick = btnFilterClick
+      TabOrder = 4
+      OnClick = btnFilterInvoiceClick
     end
     object Button5: TButton
-      Left = 170
-      Top = 94
+      Left = 182
+      Top = 149
       Width = 75
       Height = 25
       Caption = 'O'#269'isti polja'
-      TabOrder = 3
-      OnClick = btnClearClick
+      TabOrder = 5
     end
   end
   object GroupBox4: TGroupBox
     Left = 8
-    Top = 479
+    Top = 687
     Width = 398
-    Height = 178
-    Caption = 'GroupBox4'
+    Height = 121
+    Caption = 'Uredi aktivni ra'#269'un'
     TabOrder = 10
     object Label6: TLabel
       Left = 15
@@ -396,6 +504,21 @@ object eInvoice: TeInvoice
     end
     object tPrimateljiadresa: TWideStringField
       FieldName = 'adresa'
+      Size = 255
+    end
+    object tPrimateljiporezna_shema: TWideStringField
+      DisplayLabel = 'Porezna shema'
+      FieldName = 'porezna_shema'
+      Size = 255
+    end
+    object tPrimateljiemail: TWideStringField
+      DisplayLabel = 'E-Mail'
+      FieldName = 'email'
+      Size = 255
+    end
+    object tPrimateljibroj_telefona: TWideStringField
+      DisplayLabel = 'Broj telefona'
+      FieldName = 'broj_telefona'
       Size = 255
     end
   end
@@ -515,6 +638,35 @@ object eInvoice: TeInvoice
     object tRacuniprimateljID: TIntegerField
       DisplayWidth = 10
       FieldName = 'primateljID'
+    end
+    object tRacunidatum_izdavanja: TDateTimeField
+      DisplayLabel = 'Datum izdavanja'
+      FieldName = 'datum_izdavanja'
+    end
+    object tRacuniVrstadokumenta: TWideStringField
+      FieldName = 'Vrsta dokumenta'
+      Size = 255
+    end
+  end
+  object dStatusi: TDataSource
+    DataSet = tStatusi
+    Left = 940
+    Top = 88
+  end
+  object tStatusi: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    TableName = 'statusi'
+    Left = 1000
+    Top = 152
+    object tStatusistatus: TWideStringField
+      FieldName = 'status'
+      Size = 255
+    end
+    object tStatusiID: TAutoIncField
+      FieldName = 'ID'
+      ReadOnly = True
     end
   end
 end

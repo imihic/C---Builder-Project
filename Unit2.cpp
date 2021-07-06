@@ -50,14 +50,14 @@ void __fastcall TeInvoice::btnFilterClick(TObject *Sender)
 		}
 	}
 	else if(eNazivPrimateljaFilter->Text != ""){
-		tPrimatelji->Filter = "naziv LIKE *"  + eOIBPrimateljaFilter->Text + "*";
+		tPrimatelji->Filter = "naziv LIKE *"  + eNazivPrimateljaFilter->Text + "*";
 		if ( tPrimatelji->Filtered==false){
 			tPrimatelji->Filtered=true;
 			Application->MessageBox(L"Tablica uspješno filtrirana prema nazivu!", L"Informacija", MB_OK | MB_ICONINFORMATION | MB_OK);
 		}
 	}
 	else if(eAdresaPrimateljaFilter->Text != ""){
-		tPrimatelji->Filter = "adresa LIKE *"  + eOIBPrimateljaFilter->Text + "*";
+		tPrimatelji->Filter = "adresa LIKE *"  + eAdresaPrimateljaFilter->Text + "*";
 		if ( tPrimatelji->Filtered==false){
 			tPrimatelji->Filtered=true;
 			Application->MessageBox(L"Tablica uspješno filtrirana prema adresi!", L"Informacija", MB_OK | MB_ICONINFORMATION | MB_OK);
@@ -76,9 +76,44 @@ void __fastcall TeInvoice::btnClearClick(TObject *Sender)
 //---------------------------------------------------------------------------
 
 
+
+
 void __fastcall TeInvoice::Settings1Click(TObject *Sender)
 {
-	Form5->ShowModal();
+	//Form5->ShowModal();
+}
+//---------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+void __fastcall TeInvoice::btnFilterInvoiceClick(TObject *Sender)
+{
+	if(eInvoiceDescription->Text != ""){
+		tRacuni->Filter = "opis LIKE *"  + eInvoiceDescription->Text + "*";
+		if ( tRacuni->Filtered==false){
+			tPrimatelji->Filtered=true;
+			Application->MessageBox(L"Tablica računa uspješno filtrirana prema opisu!", L"Informacija", MB_OK | MB_ICONINFORMATION | MB_OK);
+		}
+	}
+	else if(eInvoiceAmount->Text != ""){
+		tRacuni->Filter = "eInvoiceAmount = "  + eInvoiceAmount->Text ;
+		if ( tRacuni->Filtered==false){
+			tPrimatelji->Filtered=true;
+			Application->MessageBox(L"Tablica računa uspješno filtrirana prema opisu!", L"Informacija", MB_OK | MB_ICONINFORMATION | MB_OK);
+		}
+	}
+	else if(cmbInvoi->Text != ""){
+		tRacuni->Filter = "opis LIKE *"  + eInvoiceDescription->Text + "*";
+		if ( tRacuni->Filtered==false){
+			tPrimatelji->Filtered=true;
+			Application->MessageBox(L"Tablica računa uspješno filtrirana prema opisu!", L"Informacija", MB_OK | MB_ICONINFORMATION | MB_OK);
+		}
+	}
 }
 //---------------------------------------------------------------------------
 
