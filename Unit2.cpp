@@ -6,6 +6,7 @@
 #include "Unit2.h"
 #include "Unit3.h"
 #include "Unit4.h"
+#include "Unit5.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -80,7 +81,7 @@ void __fastcall TeInvoice::btnClearClick(TObject *Sender)
 
 void __fastcall TeInvoice::Settings1Click(TObject *Sender)
 {
-	//Form5->ShowModal();
+	Form5->ShowModal();
 }
 //---------------------------------------------------------------------------
 
@@ -104,16 +105,27 @@ void __fastcall TeInvoice::btnFilterInvoiceClick(TObject *Sender)
 		tRacuni->Filter = "eInvoiceAmount = "  + eInvoiceAmount->Text ;
 		if ( tRacuni->Filtered==false){
 			tPrimatelji->Filtered=true;
-			Application->MessageBox(L"Tablica računa uspješno filtrirana prema opisu!", L"Informacija", MB_OK | MB_ICONINFORMATION | MB_OK);
+			Application->MessageBox(L"Tablica računa uspješno filtrirana prema iiznosu!", L"Informacija", MB_OK | MB_ICONINFORMATION | MB_OK);
 		}
 	}
-	else if(cmbInvoi->Text != ""){
-		tRacuni->Filter = "opis LIKE *"  + eInvoiceDescription->Text + "*";
+	else if(cmbInvoiceStatus->Text != ""){
+		tRacuni->Filter = "status LIKE "  + cmbInvoiceStatus->Text;
 		if ( tRacuni->Filtered==false){
 			tPrimatelji->Filtered=true;
-			Application->MessageBox(L"Tablica računa uspješno filtrirana prema opisu!", L"Informacija", MB_OK | MB_ICONINFORMATION | MB_OK);
+			Application->MessageBox(L"Tablica računa uspješno filtrirana prema statusu!", L"Informacija", MB_OK | MB_ICONINFORMATION | MB_OK);
 		}
 	}
+	else if(true) {
+		dtpInvoiceIssueDate->Enabled = true;
+		if(DateTimeToStr(dtpInvoiceIssueDate->Date) != ""){
+		tRacuni->Filter = "datum_izdavanja = " + DateTimeToStr(dtpInvoiceIssueDate->Date);
+		if ( tRacuni->Filtered==false){
+			tPrimatelji->Filtered=true;
+			Application->MessageBox(L"Tablica računa uspješno filtrirana prema datumu!", L"Informacija", MB_OK | MB_ICONINFORMATION | MB_OK);
+		}
+	}
+    }
 }
 //---------------------------------------------------------------------------
+
 

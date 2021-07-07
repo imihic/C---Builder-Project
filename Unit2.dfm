@@ -366,20 +366,20 @@ object eInvoice: TeInvoice
     end
     object Label8: TLabel
       Left = 25
-      Top = 123
+      Top = 115
       Width = 31
       Height = 13
       Caption = 'Status'
     end
     object eInvoiceDescription: TEdit
-      Left = 170
-      Top = 21
+      Left = 163
+      Top = 26
       Width = 151
       Height = 21
       TabOrder = 0
     end
     object eInvoiceAmount: TEdit
-      Left = 170
+      Left = 163
       Top = 53
       Width = 151
       Height = 21
@@ -387,26 +387,29 @@ object eInvoice: TeInvoice
       TabOrder = 1
     end
     object cmbInvoiceStatus: TDBLookupComboBox
-      Left = 169
-      Top = 115
-      Width = 145
+      Left = 163
+      Top = 107
+      Width = 151
       Height = 21
+      KeyField = 'status'
       ListField = 'status'
+      ListFieldIndex = -1
       ListSource = dStatusi
       TabOrder = 2
     end
     object dtpInvoiceIssueDate: TDateTimePicker
-      Left = 170
-      Top = 88
-      Width = 186
+      Left = 163
+      Top = 80
+      Width = 151
       Height = 21
       Time = 0.549629259257926600
       DoubleBuffered = False
       ParentDoubleBuffered = False
       TabOrder = 3
+      Visible = False
     end
     object btnFilterInvoice: TButton
-      Left = 88
+      Left = 86
       Top = 149
       Width = 75
       Height = 25

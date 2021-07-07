@@ -55,23 +55,21 @@ object Form5: TForm5
       Height = 13
       Caption = 'Font size'
     end
-    object Edit1: TEdit
+    object eWidth: TEdit
       Left = 64
       Top = 29
       Width = 121
       Height = 21
       TabOrder = 0
-      Text = 'Edit1'
     end
-    object Edit3: TEdit
+    object eTop: TEdit
       Left = 336
       Top = 24
       Width = 121
       Height = 21
       TabOrder = 1
-      Text = 'Edit1'
     end
-    object CheckBox1: TCheckBox
+    object chkStartMinized: TCheckBox
       Left = 280
       Top = 85
       Width = 97
@@ -79,39 +77,36 @@ object Form5: TForm5
       Caption = 'Start minimized'
       TabOrder = 2
     end
-    object Edit5: TEdit
+    object eFontSize: TEdit
       Left = 64
       Top = 83
       Width = 121
       Height = 21
       NumbersOnly = True
       TabOrder = 3
-      Text = '0'
     end
     object UpDown1: TUpDown
       Left = 185
       Top = 83
       Width = 17
       Height = 21
-      Associate = Edit5
+      Associate = eFontSize
       TabOrder = 4
     end
   end
-  object Edit2: TEdit
+  object eHeight: TEdit
     Left = 72
     Top = 64
     Width = 121
     Height = 21
     TabOrder = 1
-    Text = 'Edit1'
   end
-  object Edit4: TEdit
+  object eLeft: TEdit
     Left = 344
     Top = 59
     Width = 121
     Height = 21
     TabOrder = 2
-    Text = 'Edit1'
   end
   object btnSaveChanges: TButton
     Left = 135
@@ -120,6 +115,7 @@ object Form5: TForm5
     Height = 25
     Caption = 'Save changes to .INI'
     TabOrder = 3
+    OnClick = btnSaveChangesClick
   end
   object Button2: TButton
     Left = 288
