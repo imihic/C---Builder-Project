@@ -129,3 +129,19 @@ void __fastcall TeInvoice::btnFilterInvoiceClick(TObject *Sender)
 //---------------------------------------------------------------------------
 
 
+void __fastcall TeInvoice::FormCreate(TObject *Sender)
+{
+	TIniFile* ini = new TIniFile(GetCurrentDir() + "\\settings.ini");
+	Left = ini->ReadInteger("Main Window", "Left", 0);
+	Top = ini->ReadInteger("Main Window", "Top", 0);
+	Width = ini->ReadInteger("Main Window", "Width",800);
+	Height = ini->ReadInteger("Main Window", "Height", 1200);
+	Font->Size = ini->ReadInteger("Main Window", "FontSize", 8);
+	if(ini->ReadBool("Main Window", "StartMinimized", true)){
+		WindowState = TWindowState::wsMinimized;
+	}
+	delete ini;
+}
+//---------------------------------------------------------------------------
+
+

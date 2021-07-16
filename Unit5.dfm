@@ -60,6 +60,7 @@ object Form5: TForm5
       Top = 29
       Width = 121
       Height = 21
+      NumbersOnly = True
       TabOrder = 0
     end
     object eTop: TEdit
@@ -67,9 +68,10 @@ object Form5: TForm5
       Top = 24
       Width = 121
       Height = 21
+      NumbersOnly = True
       TabOrder = 1
     end
-    object chkStartMinized: TCheckBox
+    object chkStartMinimized: TCheckBox
       Left = 280
       Top = 85
       Width = 97
@@ -84,6 +86,7 @@ object Form5: TForm5
       Height = 21
       NumbersOnly = True
       TabOrder = 3
+      Text = '0'
     end
     object UpDown1: TUpDown
       Left = 185
@@ -99,6 +102,7 @@ object Form5: TForm5
     Top = 64
     Width = 121
     Height = 21
+    NumbersOnly = True
     TabOrder = 1
   end
   object eLeft: TEdit
@@ -106,6 +110,7 @@ object Form5: TForm5
     Top = 59
     Width = 121
     Height = 21
+    NumbersOnly = True
     TabOrder = 2
   end
   object btnSaveChanges: TButton
@@ -117,12 +122,13 @@ object Form5: TForm5
     TabOrder = 3
     OnClick = btnSaveChangesClick
   end
-  object Button2: TButton
+  object btnLoadChangesFromIni: TButton
     Left = 288
     Top = 152
     Width = 129
     Height = 25
     Caption = 'Load from .INI'
     TabOrder = 4
+    OnClick = btnLoadChangesFromIniClick
   end
 end

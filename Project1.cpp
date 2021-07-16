@@ -6,10 +6,11 @@
 //---------------------------------------------------------------------------
 #include <Vcl.Styles.hpp>
 #include <Vcl.Themes.hpp>
-USEFORM("Unit4.cpp", formCreateNewInvoice);
 USEFORM("Unit3.cpp", Form3);
-USEFORM("Unit2.cpp", eInvoice);
+USEFORM("Unit4.cpp", formCreateNewInvoice);
 USEFORM("Unit5.cpp", Form5);
+USEFORM("Unit2.cpp", eInvoice);
+USEFORM("Unit6.cpp", Form6);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
@@ -33,6 +34,7 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 		Application->CreateForm(__classid(TForm3), &Form3);
 		Application->CreateForm(__classid(TformCreateNewInvoice), &formCreateNewInvoice);
 		Application->CreateForm(__classid(TForm5), &Form5);
+		Application->CreateForm(__classid(TForm6), &Form6);
 		Application->Run();
 	}
 	catch (Exception &exception)

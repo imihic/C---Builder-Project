@@ -12,6 +12,7 @@ object eInvoice: TeInvoice
   Font.Style = []
   Menu = MainMenu1
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object GroupBox1: TGroupBox
@@ -402,6 +403,7 @@ object eInvoice: TeInvoice
       Top = 80
       Width = 151
       Height = 21
+      Date = 44391.000000000000000000
       Time = 0.549629259257926600
       DoubleBuffered = False
       ParentDoubleBuffered = False

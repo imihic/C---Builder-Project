@@ -21,13 +21,14 @@ __published:	// IDE-managed Components
 	TLabel *Label3;
 	TEdit *eLeft;
 	TLabel *Label4;
-	TCheckBox *chkStartMinized;
+	TCheckBox *chkStartMinimized;
 	TEdit *eFontSize;
 	TUpDown *UpDown1;
 	TLabel *Label5;
 	TButton *btnSaveChanges;
-	TButton *Button2;
+	TButton *btnLoadChangesFromIni;
 	void __fastcall btnSaveChangesClick(TObject *Sender);
+	void __fastcall btnLoadChangesFromIniClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm5(TComponent* Owner);

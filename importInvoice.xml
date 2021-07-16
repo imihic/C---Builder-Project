@@ -1,0 +1,19 @@
+﻿<?xml version="1.0"?>
+<Invoices>
+    <Invoice>
+        <opis>Usluge tehničke podrške</opis>
+        <iznos>12000</iznos>
+        <status>Nije potpisan</status>
+        <primateljID>1</primateljID>
+        <datum_idavanja>14.07.2021.</datum_idavanja>
+        <vrsta_dokumenta>Komercijalni račun</vrsta_dokumenta>
+    </Invoice>
+    <Invoice>
+        <opis>Najam vanjskih suradnika</opis>
+        <iznos>1200000</iznos>
+        <status>Nije potpisan</status>
+        <primateljID>2</primateljID>
+        <datum_idavanja>15.07.2021.</datum_idavanja>
+        <vrsta_dokumenta>Komercijalni račun</vrsta_dokumenta>
+    </Invoice>
+</Invoices>

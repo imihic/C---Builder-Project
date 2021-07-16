@@ -119,6 +119,7 @@ __published:	// IDE-managed Components
 	void __fastcall btnClearClick(TObject *Sender);
 	void __fastcall Settings1Click(TObject *Sender);
 	void __fastcall btnFilterInvoiceClick(TObject *Sender);
+	void __fastcall FormCreate(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TeInvoice(TComponent* Owner);
